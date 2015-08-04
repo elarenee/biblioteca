@@ -20,12 +20,14 @@ public class ExampleTest {
     private PrintStream printstream;
     ArrayList<Book> listOfBooks;
     private BibliotecaApp biblioteca;
+    private Book sandAndFog;
 
     @Before
     public void setUp() {
         printstream = mock(PrintStream.class);
         listOfBooks = new ArrayList<Book>();
         biblioteca = new BibliotecaApp(printstream, listOfBooks);
+        sandAndFog = new Book("House of Sand and Fog", "Andre Dubus", 2003);
     }
 
     @Test
@@ -42,7 +44,6 @@ public class ExampleTest {
 
     @Test
     public void shouldPrintOneTitleWhenOneBookInBiblioteca() {
-        Book sandAndFog = new Book("House of Sand and Fog", "Andre Dubus", 2003);
         listOfBooks.add(sandAndFog);
         biblioteca.openLibrary();
         verify(printstream).print(contains("House of Sand and Fog"));
@@ -50,21 +51,9 @@ public class ExampleTest {
 
     @Test
     public void shouldPrintAllDataWhenOneBookInBiblioteca() {
-        Book sandAndFog = new Book("House of Sand and Fog", "Andre Dubus", 2003);
         listOfBooks.add(sandAndFog);
         biblioteca.openLibrary();
         verify(printstream).print(contains("House of Sand and Fog, Andre Dubus, 2003"));
     }
-
-    /*
-    @Test
-    public void shouldPrintOneTitleWhenOneBookInBiblioteca() {
-        Book sandAndFog = new Book("House of Sand and Fog", "Andre Dubus", 2003);
-        listOfBooks.add(sandAndFog);
-        biblioteca.openLibrary();
-        verify(printstream).print(contains("House of Sand and Fog"));
-    }
-    */
-
 
 }
