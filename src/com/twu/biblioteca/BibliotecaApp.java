@@ -2,14 +2,17 @@ package com.twu.biblioteca;
 
 
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 
 public class BibliotecaApp {
 
     private PrintStream printStream;
+    private ArrayList<String> listOfBooks;
 
-    public BibliotecaApp(PrintStream printStream) {
+    public BibliotecaApp(PrintStream printStream, ArrayList<String> listOfBooks) {
         this.printStream = printStream;
+        this.listOfBooks = listOfBooks;
     }
 
     public void openLibrary() {
@@ -18,8 +21,7 @@ public class BibliotecaApp {
     }
 
     public void listBooksInLibrary() {
-        printStream.println("House of Sand and Fog");
-        printStream.println("Game of Thrones");
+        printStream.println("");
     }
 
     public static void main(String[] args) {
