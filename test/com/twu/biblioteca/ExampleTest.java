@@ -23,7 +23,16 @@ public class ExampleTest {
     @Test
     public void shouldWelcomeWhenBibliotecaOpens() {
         BibliotecaApp biblioteca = new BibliotecaApp(printstream);
-
+        biblioteca.openLibrary();
         verify(printstream).println("Welcome to Biblioteca!");
+    }
+
+    @Test
+    public void shouldListBooksAfterWelcome() {
+        BibliotecaApp biblioteca = new BibliotecaApp(printstream);
+        biblioteca.openLibrary();
+        verify(printstream).println("Welcome to Biblioteca!");
+        verify(printstream).println("House of Sand and Fog");
+        verify(printstream).println("Game of Thrones");
     }
 }
