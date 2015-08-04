@@ -47,11 +47,5 @@ public class ExampleTest {
         verify(printstream).print(contains("House of Sand and Fog"));
     }
 
-    @Test
-    public void shouldAccessBookAuthor() {
-        Book book = new Book("House of Sand and Fog", "Andre Dubus");
-        String author = book.getAuthor();
-        assertEquals("Andre Dubus", author);
-    }
 
 }
