@@ -25,7 +25,7 @@ public class BibliotecaApp {
     public void listBooksInLibrary() {
         String output = "";
         for (Book book: listOfBooks) {
-            output += book.getTitle() + ", " + book.getAuthor() + ", " + book.getYearPublished() + "\n";
+            output += book.getTitle() + " | " + book.getAuthor() + " | " + book.getYearPublished() + "\n";
         }
         printStream.print(output);
     }
