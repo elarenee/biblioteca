@@ -10,9 +10,9 @@ import static org.mockito.Mockito.mock;
 public class BibliotecaApp {
 
     private PrintStream printStream;
-    private ArrayList<String> listOfBooks;
+    private ArrayList<Book> listOfBooks;
 
-    public BibliotecaApp(PrintStream printStream, ArrayList<String> listOfBooks) {
+    public BibliotecaApp(PrintStream printStream, ArrayList<Book> listOfBooks) {
         this.printStream = printStream;
         this.listOfBooks = listOfBooks;
     }
@@ -24,15 +24,15 @@ public class BibliotecaApp {
 
     public void listBooksInLibrary() {
         String output = "";
-        for (String book: listOfBooks) {
-            output += book + "\n";
+        for (Book book: listOfBooks) {
+            output += book.getTitle() + ", " + book.getAuthor() + ", " + book.getYearPublished() + "\n";
         }
         printStream.print(output);
     }
 
     public static void main(String[] args) {
-        ArrayList<String> books = new ArrayList<String>();
-        books.add("Game of Thrones");
+        ArrayList<Book> books = new ArrayList<Book>();
+        //books.add("Game of Thrones");
         BibliotecaApp biblioteca = new BibliotecaApp(System.out, books);
         biblioteca.openLibrary();
 
