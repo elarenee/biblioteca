@@ -19,37 +19,39 @@ public class ExampleTest {
 
     private PrintStream printstream;
     ArrayList<String> listOfBooks;
+    private BibliotecaApp biblioteca;
 
     @Before
     public void setUp() {
         printstream = mock(PrintStream.class);
         listOfBooks = new ArrayList<String>();
+        biblioteca = new BibliotecaApp(printstream, listOfBooks);
     }
 
     @Test
     public void shouldWelcomeWhenBibliotecaOpens() {
-        BibliotecaApp biblioteca = new BibliotecaApp(printstream, listOfBooks);
         biblioteca.openLibrary();
         verify(printstream).println("Welcome to Biblioteca!");
     }
 
     @Test
-    public void shouldNotPrintAnythingWhenLibraryIsEmpty() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(printstream, listOfBooks);
-        bibliotecaApp.openLibrary();
-        verify(printstream).println("Welcome to Biblioteca!");
-        verify(printstream).println("");
+    public void shouldNotPrintAnythingWhenBibliotecaIsEmpty() {
+        biblioteca.openLibrary();
+        verify(printstream).print("");
     }
 
     @Test
-    public void shouldPrintOneBookWhenOneBookInLibrary() {
+    public void shouldPrintOneBookWhenOneBookInBiblioteca() {
         listOfBooks.add("House of Sand and Fog");
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(printstream, listOfBooks);
-        bibliotecaApp.openLibrary();
-        verify(printstream).println("Welcome to Biblioteca!");
-        verify(printstream).println("House of Sand and Fog");
+        biblioteca.openLibrary();
+        verify(printstream).print(contains("House of Sand and Fog"));
+    }
 
-
+    @Test
+    public void shouldAccessBookAuthor() {
+        Book book = new Book("House of Sand and Fog", "Andre Dubus");
+        String author = book.getAuthor();
+        assertEquals("Andre Dubus", author);
     }
 
 }

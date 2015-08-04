@@ -23,14 +23,16 @@ public class BibliotecaApp {
     }
 
     public void listBooksInLibrary() {
+        String output = "";
         for (String book: listOfBooks) {
-            printStream.println(book);
+            output += book + "\n";
         }
-        printStream.println("");
+        printStream.print(output);
     }
 
     public static void main(String[] args) {
         ArrayList<String> books = new ArrayList<String>();
+        books.add("Game of Thrones");
         BibliotecaApp biblioteca = new BibliotecaApp(System.out, books);
         biblioteca.openLibrary();
 
