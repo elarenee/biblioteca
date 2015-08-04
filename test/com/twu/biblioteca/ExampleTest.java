@@ -37,9 +37,19 @@ public class ExampleTest {
     public void shouldNotPrintAnythingWhenLibraryIsEmpty() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(printstream, listOfBooks);
         bibliotecaApp.openLibrary();
+        verify(printstream).println("Welcome to Biblioteca!");
         verify(printstream).println("");
     }
 
+    @Test
+    public void shouldPrintOneBookWhenOneBookInLibrary() {
+        listOfBooks.add("House of Sand and Fog");
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(printstream, listOfBooks);
+        bibliotecaApp.openLibrary();
+        verify(printstream).println("Welcome to Biblioteca!");
+        verify(printstream).println("House of Sand and Fog");
 
+
+    }
 
 }

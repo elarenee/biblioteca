@@ -23,6 +23,9 @@ public class BibliotecaApp {
     }
 
     public void listBooksInLibrary() {
+        for (String book: listOfBooks) {
+            printStream.println(book);
+        }
         printStream.println("");
     }
 
