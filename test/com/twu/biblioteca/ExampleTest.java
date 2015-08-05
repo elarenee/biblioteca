@@ -34,27 +34,27 @@ public class ExampleTest {
 
     @Test
     public void shouldWelcomeWhenBibliotecaOpens() {
-        biblioteca.openLibrary();
+        biblioteca.openBiblioteca();
         verify(printstream).println("Welcome to Biblioteca!");
     }
 
     @Test
     public void shouldNotPrintAnythingWhenBibliotecaIsEmpty() {
-        biblioteca.openLibrary();
+        biblioteca.openBiblioteca();
         verify(printstream).print("");
     }
 
     @Test
     public void shouldPrintOneTitleWhenOneBookInBiblioteca() {
         listOfBooks.add(sandAndFog);
-        biblioteca.openLibrary();
+        biblioteca.openBiblioteca();
         verify(printstream).print(contains("House of Sand and Fog"));
     }
 
     @Test
     public void shouldPrintAllDataWhenOneBookInBiblioteca() {
         listOfBooks.add(sandAndFog);
-        biblioteca.openLibrary();
+        biblioteca.openBiblioteca();
         verify(printstream).print(contains("House of Sand and Fog"));
         verify(printstream).print(contains("Andre Dubus"));
         verify(printstream).print(contains("2003"));
@@ -64,7 +64,7 @@ public class ExampleTest {
     public void shouldPrintAllDataInColumnsWhenManyBooksInBiblioteca() {
         listOfBooks.add(sandAndFog);
         listOfBooks.add(gameOfThrones);
-        biblioteca.openLibrary();
+        biblioteca.openBiblioteca();
         verify(printstream).print(contains("House of Sand and Fog | Andre Dubus | 2003"));
         verify(printstream).print(contains("Game of Thrones | George R. R. Martin | 2000"));
     }

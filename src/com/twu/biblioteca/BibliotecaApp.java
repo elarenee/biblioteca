@@ -17,7 +17,7 @@ public class BibliotecaApp {
         this.listOfBooks = listOfBooks;
     }
 
-    public void openLibrary() {
+    public void openBiblioteca() {
         printStream.println("Welcome to Biblioteca!");
         listBooksInLibrary();
     }
@@ -34,7 +34,7 @@ public class BibliotecaApp {
         ArrayList<Book> books = new ArrayList<Book>();
         //books.add("Game of Thrones");
         BibliotecaApp biblioteca = new BibliotecaApp(System.out, books);
-        biblioteca.openLibrary();
+        biblioteca.openBiblioteca();
 
     }
 
