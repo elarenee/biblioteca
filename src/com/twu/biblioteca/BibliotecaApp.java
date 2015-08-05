@@ -19,6 +19,7 @@ public class BibliotecaApp {
 
     public void openBiblioteca() {
         printStream.println("Welcome to Biblioteca!");
+        printStream.println("Enter 1 to list books.");
         listBooksInLibrary();
     }
 

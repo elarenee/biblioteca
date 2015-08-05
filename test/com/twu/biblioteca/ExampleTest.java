@@ -69,4 +69,11 @@ public class ExampleTest {
         verify(printstream).print(contains("Game of Thrones | George R. R. Martin | 2000"));
     }
 
+    @Test
+    public void shouldDisplayMenuOptionsWhenBibliotecaStarts() {
+        biblioteca.openBiblioteca();
+
+        verify(printstream).println("Enter 1 to list books.");
+    }
+
 }
